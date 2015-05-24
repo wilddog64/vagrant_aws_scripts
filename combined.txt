@@ -1,0 +1,15 @@
+Content-Type: multipart/mixed; boundary="===============8251139518144813652=="
+MIME-Version: 1.0
+
+--===============8251139518144813652==
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="boothook.sh"
+
+#!/bin/bash
+SUDOERS_FILE=/etc/sudoers.d/999-vagrant-cloud-init-requiretty
+HOSTNAME=:hostname:
+echo "Defaults:ec2-user !requiretty" > $SUDOERS_FILE
+echo "Defaults:root !requiretty" >> $SUDOERS_FILE
+chmod 440 $SUDOERS_FILE
