@@ -45,7 +45,7 @@ class Aws
     fh.each_line do | line |  # eumerate each line to find out information
       line.strip!             # strip leading and trailing white spaces
       next if ( line =~ /^#/ )
-      line.gsub!( /#.*$/, '' )
+      line.gsub!( /\s*#.*$/, '' )
       if ( line =~ /^\[(.*?)\]/ )
         key           = $1
         ini_hash[key] = {}
